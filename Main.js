@@ -178,19 +178,12 @@ var hasUnlock = true;
     // audio4.play();
     // audioAutoPlay(audio4);
 
-    var audio2 = document.getElementById('messageAudio2');
-    audio2.src = "audio/msg2s.mp3";
-    audio2.muted = true;
-    audio2.currentTime = 0;
-    audioAutoPlay(audio2);
+    audioAutoPlay();
     // audio2.play();
 
-    var audio3 = document.getElementById('messageAudio3');
-    audio3.src = "audio/msg3s.mp3";
-    audio3.muted = true;
-    audio3.currentTime = 0;
+    
     // audio3.play();
-    audioAutoPlay(audio3);
+    // audioAutoPlay(audio3);
 
     for (var i = 1; i <= 5; i++)
     {
@@ -443,9 +436,30 @@ function autoPlayAudio1(myAudio)
 }
 
 
-function audioAutoPlay(audio){
-    audio.play();
+function audioAutoPlay(){
+  var audio2 = document.getElementById('messageAudio2');
+    audio2.src = "audio/msg2s.mp3";
+    audio2.muted = true;
+    audio2.currentTime = 0;
+    audio2.play();
+
+    var audio3 = document.getElementById('messageAudio3');
+    audio3.src = "audio/msg3s.mp3";
+    audio3.muted = true;
+    audio3.currentTime = 0;
+    audio3.play();
+
     document.addEventListener("WeixinJSBridgeReady", function () {
-            audio.play();
+            var audio2 = document.getElementById('messageAudio2');
+            audio2.src = "audio/msg2s.mp3";
+            audio2.muted = true;
+            audio2.currentTime = 0;
+            audio2.play();
+
+            var audio3 = document.getElementById('messageAudio3');
+            audio3.src = "audio/msg3s.mp3";
+            audio3.muted = true;
+            audio3.currentTime = 0;
+            audio3.play();
     }, false);
 }
