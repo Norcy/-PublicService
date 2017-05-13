@@ -318,7 +318,7 @@ function playVideo()
   myVideo.play();
   console.log(myVideo.className);
 
-  myVideo.addEventListener('ended',function(){didPlayEnd=true},false);
+  myVideo.addEventListener('ended',function(){didPlayEnd=true;showEndPage();},false);
 }
 
 function showEndPage()
