@@ -268,11 +268,11 @@ function showMessage()
   var audio1 = document.getElementById('messageAudio1');
   playAudio(audio1);
 
-  setTimeout(function(){
-    showPrintPage();
-    var audio3 = document.getElementById('messageAudio3');
-    playAudio(audio3);
-  }, 5200);
+  // setTimeout(function(){
+  //   showPrintPage();
+  //   var audio3 = document.getElementById('messageAudio3');
+  //   playAudio(audio3);
+  // }, 5200);
 }
 
 function hideMessage() 
@@ -442,28 +442,28 @@ function autoPlayAudio1(myAudio)
 
 function audioAutoPlay(){
   var audio2 = document.getElementById('messageAudio2');
-    audio2.src = "audio/msg2s.mp3";
+    audio2.src = "audio/msg4s.mp3";
     audio2.muted = true;
     audio2.currentTime = 0;
     audio2.play();
 
-    var audio3 = document.getElementById('messageAudio3');
-    audio3.src = "audio/msg3s.mp3";
-    audio3.muted = true;
-    audio3.currentTime = 0;
-    audio3.play();
+    // var audio3 = document.getElementById('messageAudio3');
+    // audio3.src = "audio/msg3s.mp3";
+    // audio3.muted = true;
+    // audio3.currentTime = 0;
+    // audio3.play();
 
     document.addEventListener("WeixinJSBridgeReady", function () {
             var audio2 = document.getElementById('messageAudio2');
-            audio2.src = "audio/msg2s.mp3";
+            audio2.src = "audio/msg4s.mp3";
             audio2.muted = true;
             audio2.currentTime = 0;
             audio2.play();
 
-            var audio3 = document.getElementById('messageAudio3');
-            audio3.src = "audio/msg3s.mp3";
-            audio3.muted = true;
-            audio3.currentTime = 0;
-            audio3.play();
+            // var audio3 = document.getElementById('messageAudio3');
+            // audio3.src = "audio/msg3s.mp3";
+            // audio3.muted = true;
+            // audio3.currentTime = 0;
+            // audio3.play();
     }, false);
 }
