@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>H5单页面手势滑屏切换</title>
+
+  <!-- 预加载 -->
+  <link rel="prefetch" href="audio/msg1.mp3" />
+  <link rel="prefetch" href="audio/msg2.mp3" />
+  <link rel="prefetch" href="http://www.w3school.com.cn/i/movie.ogg" />
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
+
+  <meta name="viewport" charset="utf-8" content="width=device-width,
+  initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=1.0">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/app.js"></script>
+
+  <script type="text/javascript" src="Main.js"></script>
+  <link rel="stylesheet" type="text/css" href="Main.css">
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id="VideoPage" onclick="showEndPage()" style="display: none">
+    <!-- <img style="width: 100%;height: 100%" src="http://www.jingjingke.com/res/img/ceshi.png" /> -->
+    <video src="http://www.w3school.com.cn/i/movie.ogg" id="myVideo" class="myVideo">
+      Your browser does not support the video tag.
+    </video>
+    <div style="width: 100%;height: 100%;background: rgba(0,0,0,0.8);z-index:1;position: absolute;top: 0">
+      <!-- <img src="http://www.jingjingke.com/res/img/ceshi.png" style="height: 100%" /> -->
+      <p class="movieTitle">你好哈哈哈哈哈哈</p>
+    </div>
+  </div>
+
+  <div id="endPage" onclick="showSharePage()" style="display: none">
+    <div style="width: 100%;height: 100%;background: rgba(0,0,0,0.8);z-index:1;position: absolute;top: 0">
+      <!-- <img src="http://www.jingjingke.com/res/img/ceshi.png" style="height: 100%" /> -->
+      <p class="movieTitle">我的天，这是最后一个页面！</p>
+    </div>
+  </div>
+
+
+  <div id="printPage" onclick="" style="display: none">
+    <div style="width: 100%;height: 100%;background: rgba(0,0,0,0.2);z-index:1;position: absolute;top: 0">
+      <!-- <img src="http://www.jingjingke.com/res/img/ceshi.png" style="height: 100%" /> -->
+      <p class="printWord" id="printWord"></p>
+    </div>
+  </div>
+
+
+  <div id="viewport" class="viewport">
+
+    <div class="pageview" style="text-align: center;" >
+      <img src="resource/begin2.png" style="width: 100%;height: 100%">
+      <div id="btn" style="width:160px;height: 79px;z-index:1;position: relative;bottom: 28%;display:inline-block;" onclick="hideBtn()">
+        <img src="resource/btn.png" style="width: 100%;height: 100%;">
+      </div>
+    </div>
+
+    <div class="pageview" style="margin-top: 10px">
+
+      <div class="" id="messageTips" onclick="showPrintPage()" style="height: 0px">
+        <img src="" id="messageImg1" style="width: 50%;height: 0px;">
+      </div>
+      <div class="" id="messageTips2" onclick="playVideo()" style="height: 0px">
+        <img src="" id="messageImg2" style="width: 50%;height: 0px;">
+      </div>
+
+
+      <div class="eachRow">
+        <div class="appIcon" id="appicon_r1l1" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r1l2" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r1l3" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r1l4" onclick="play(this)"></div>
+      </div>
+
+      <div class="eachRow">
+        <div class="appIcon" id="appicon_r2l1" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r2l2" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r2l3" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r2l4" onclick="play(this)"></div>
+      </div>
+
+      <div class="eachRow">
+        <div class="appIcon" id="appicon_r3l1" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r3l2" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r3l3" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r3l4" onclick="play(this)"></div>
+      </div>
+
+      <div class="eachRow">
+        <div class="appIcon" id="appicon_r4l1" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r4l2" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r4l3" onclick="play(this)"></div>
+      </div>
+
+      <div class="eachRow" style="bottom: 0px; position: fixed; width: 50%;margin-left: 0px;">
+        <div class="appIcon" id="appicon_r5l1" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r5l2" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r5l3" onclick="play(this)"></div>
+        <div class="appIcon" id="appicon_r5l4" onclick="play(this)"></div>
+      </div>
+
+
+      <img src="resource/home.png" style="width: 50%;height: 100%;top: 0;position:absolute;z-index: 1;pointer-events: none;">  
+    </div>
+    
+  </div>
+  <div class="pagenumber">
+    <div></div>
+    <div></div>
+  </div>
+
+
+  <audio id="r1l1" name="audio">
+    <source src="audio/11.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r1l2" name="audio">
+    <source src="audio/12.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r1l3" name="audio">
+    <source src="audio/13.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r1l4" name="audio">
+    <source src="audio/14.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r2l1" name="audio">
+    <source src="audio/21.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r2l2" name="audio">
+    <source src="audio/22.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r2l3" name="audio">
+    <source src="audio/23.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r2l4" name="audio">
+    <source src="audio/24.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r3l1" name="audio">
+    <source src="audio/31.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r3l2" name="audio">
+    <source src="audio/32.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r3l3" name="audio">
+    <source src="audio/33.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r3l4" name="audio">
+    <source src="audio/34.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r4l1" name="audio">
+    <source src="audio/41.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r4l2" name="audio">
+    <source src="audio/42.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r4l3" name="audio">
+    <source src="audio/43.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r5l1" name="audio">
+    <source src="audio/51.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r5l2" name="audio">
+    <source src="audio/52.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r5l3" name="audio">
+    <source src="audio/53.mp3" type="audio/mpeg"/>
+  </audio>
+  <audio id="r5l4" name="audio">
+    <source src="audio/54.mp3" type="audio/mpeg"/>
+  </audio>
+  
+  <audio id="messageAudio1" name="audio">
+    <source src="audio/msg1.mp3" type="audio/mpeg"/>
+  </audio>
+
+  <audio id="messageAudio2" name="audio">
+    <source src="audio/msg2.mp3" type="audio/mpeg"/>
+  </audio>
+
+  <audio id="unlock" name="audio">
+    <source src="audio/unlock.mp3" type="audio/mpeg"/>
+  </audio>
+</body>
+</html>

@@ -1,0 +1,132 @@
+.eachRow
+{
+	height: 87px;
+	margin-right: 2%;
+	margin-left: 2%;
+}
+
+.appIcon
+{
+	width: 25%;
+	height: 100%;
+	background-color: red;
+	/*background-color: rgba(0,0,0,0);*/
+	display: inline;
+	float:left;
+}
+
+html, body
+{
+	height: 100%;
+	width: 100%;
+}
+
+.movieTitle
+{
+	color: white;
+	margin-top: 130%;
+	font-size: 25px;
+	text-align: center;
+}
+
+.printWord
+{
+	color: white;
+	margin-top: 20%;
+	font-size: 25px;
+	text-align: center;
+}
+
+.messageTips
+{
+	top: -104px;
+	height: 104px;
+	width: 100%;
+	/*background: rgba(0,255,0,0.7);*/
+	float: right;
+	position: absolute;
+	z-index: 2;
+	animation: myfirst 0.4s linear 0s forwards;
+	/* Firefox: */
+	-moz-animation: myfirst 0.4s linear 0s  forwards;
+	/* Safari 和 Chrome: */
+	-webkit-animation: myfirst 0.4s linear 0s forwards;
+}
+
+@keyframes myfirst
+{
+	0%   {top:-104px;}
+	/*25%  {background: yellow; left:200px; top:0px;}*/
+	/*50%  {top:-40px;}*/
+	/*75%  {background: rgba(0,255,0,0.7); left:0px; top:200px;}*/
+	100% {top:0px;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+	0%   {top:-104px;}
+	/*25%  {background: yellow; left:200px; top:0px;}*/
+	/*50%  {top:-40px;}*/
+	/*75%  {background: rgba(0,255,0,0.7); left:0px; top:200px;}*/
+	100% {top:0px;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+	0%   {top:-104px;}
+	/*25%  {background: yellow; left:200px; top:0px;}*/
+	/*50%  {top:-40px;}*/
+	/*75%  {background: rgba(0,255,0,0.7); left:0px; top:200px;}*/
+	100% {top:0px;}
+}
+
+
+
+.VideoPage
+{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(255,255,0,0.8);
+	display: block !important;
+	z-index: 0;
+	position: relative;
+}
+
+@-webkit-keyframes myScale /* Safari 和 Chrome */
+{
+	0%   {scale:0;}
+	/*25%  {background: yellow; left:200px; top:0px;}*/
+	/*50%  {scale:0.25f;}*/
+	/*75%  {background: rgba(0,255,0,0.7); left:0px; top:200px;}*/
+	100%   {background: rgba(0,255,0,0.7);scale:0.5;}
+}
+
+.myVideo
+{
+	height: 40%;
+	width: 100%;
+	margin: 45% 0 0% 0;
+}
+
+.endPage
+{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(255,0,0,0.8);
+	display: block !important;
+	z-index: 0;
+	position: relative;
+}
+
+.printPage
+{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.7);
+	display: block !important;
+	z-index: 0;
+	position: relative;
+}
