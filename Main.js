@@ -442,7 +442,7 @@ function autoPlayAudio1(myAudio)
 
 function audioAutoPlay(){
   var audio2 = document.getElementById('messageAudio2');
-    audio2.src = "audio/msg4s.mp3";
+    audio2.src = "audio/msg2.mp3";
     audio2.muted = true;
     audio2.currentTime = 0;
     audio2.play();
@@ -455,7 +455,7 @@ function audioAutoPlay(){
 
     document.addEventListener("WeixinJSBridgeReady", function () {
             var audio2 = document.getElementById('messageAudio2');
-            audio2.src = "audio/msg4s.mp3";
+            audio2.src = "audio/msg2.mp3";
             audio2.muted = true;
             audio2.currentTime = 0;
             audio2.play();
