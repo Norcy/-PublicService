@@ -171,18 +171,18 @@ var hasUnlock = true;
     myVideo.muted = true;
     myVideo.play();
 
-    var audio4 = document.getElementById('unlock');
-    audio4.src = "audio/unlock.mp3";
-    audio4.muted = true;
-    audio4.currentTime = 0;
-    audio4.play();
+    // var audio4 = document.getElementById('unlock');
+    // audio4.src = "audio/unlock.mp3";
+    // audio4.muted = true;
+    // audio4.currentTime = 0;
+    // audio4.play();
     // audioAutoPlay(audio4);
 
     var audio2 = document.getElementById('messageAudio2');
     audio2.src = "audio/msg2s.mp3";
     audio2.muted = true;
     audio2.currentTime = 0;
-    autoPlayAudio1(audio2);
+    audioAutoPlay(audio2);
     // audio2.play();
 
     var audio3 = document.getElementById('messageAudio3');
@@ -190,7 +190,7 @@ var hasUnlock = true;
     audio3.muted = true;
     audio3.currentTime = 0;
     // audio3.play();
-    autoPlayAudio1(audio3);
+    audioAutoPlay(audio3);
 
     for (var i = 1; i <= 5; i++)
     {
