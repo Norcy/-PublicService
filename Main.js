@@ -106,8 +106,8 @@ var hasUnlock = true;
                  }
                }.bind(this),false);
 
-              /*手指离开屏幕时，计算最终需要停留在哪一页*/
-              document.addEventListener("touchend",function(e){
+           /*手指离开屏幕时，计算最终需要停留在哪一页*/
+           document.addEventListener("touchend",function(e){
                // e.preventDefault();
                if (hasUnlock)
                {
@@ -175,13 +175,15 @@ var hasUnlock = true;
     audio2.src = "audio/msg2s.mp3";
     audio2.muted = true;
     audio2.currentTime = 0;
-    audio2.play();
+    autoPlayAudio1(audio2);
+    // audio2.play();
 
     var audio3 = document.getElementById('messageAudio3');
     audio3.src = "audio/msg3s.mp3";
     audio3.muted = true;
     audio3.currentTime = 0;
-    audio3.play();
+    // audio3.play();
+    autoPlayAudio1(audio3);
 
     for (var i = 1; i <= 5; i++)
     {
@@ -259,7 +261,7 @@ function showMessage()
 	msgImg1.style.height = "100%";
 	console.log(msgImg1);
 
-	var audio1 = document.getElementById('messageAudio2');
+	var audio1 = document.getElementById('messageAudio1');
 	playAudio(audio1);
 
 	setTimeout(function(){
@@ -413,4 +415,22 @@ function hideBtn()
 	var audio = document.getElementById("unlock");
 	playAudio(audio);
 	hasUnlock = false;
+}
+
+
+function autoPlayAudio1(myAudio)
+{
+  wx.config({
+    // 配置信息, 即使不正确也能使用 wx.ready
+    debug: false,
+    appId: '',
+    timestamp: 1,
+    nonceStr: '',
+    signature: '',
+    jsApiList: []
+  });
+
+  wx.ready(function() {
+    myAudio.play();
+  });
 }
