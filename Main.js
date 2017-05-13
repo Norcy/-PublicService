@@ -258,6 +258,7 @@ function showMessage2()
 	msgImg2.style.height = "100%";
 
 	audio = document.getElementById('messageAudio2');
+  audio.muted = false;
 	playAudio(audio);
 }
 
