@@ -20,7 +20,6 @@ var hasUnlock = true;
              }.bind(app),false);
      }(),
 
-
      bindBtnClick:function(){
       var button = document.querySelector('#testbtn');
       if (button)
@@ -165,7 +164,18 @@ var hasUnlock = true;
 
 
 
+function preloadSth() 
+{
+    console.log("preload");
+    var myVideo = document.getElementById("myVideo");
+    myVideo.muted = true;
+    myVideo.play();
 
+    audio = document.getElementById('messageAudio2');
+    audio.muted = true;
+    audio.currentTime = 0;
+    audio.play();
+}
 
 
 
@@ -269,6 +279,7 @@ function playVideo()
 	VideoPage.className="VideoPage";
 
 	var myVideo = document.getElementById("myVideo");
+  myVideo.muted = false;
 	myVideo.play();
 	console.log(myVideo.className);
 }
