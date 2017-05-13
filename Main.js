@@ -272,7 +272,7 @@ function showMessage()
     showPrintPage();
     // var audio3 = document.getElementById('messageAudio3');
     // playAudio(audio3);
-  }, 5200);
+  }, 4800);
 }
 
 function hideMessage() 
