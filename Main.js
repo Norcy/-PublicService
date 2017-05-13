@@ -259,7 +259,7 @@ function showMessage()
 	msgImg1.style.height = "100%";
 	console.log(msgImg1);
 
-	var audio1 = document.getElementById('messageAudio1');
+	var audio1 = document.getElementById('messageAudio2');
 	playAudio(audio1);
 
 	setTimeout(function(){
