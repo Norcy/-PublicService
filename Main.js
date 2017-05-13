@@ -311,17 +311,34 @@ function showPrintPage()
 	hideMessage();
 	var printPage = document.getElementById("printPage");
 	printPage.className="printPage";
-	var msg="JS打字机效果 ，原理很简单：每次多获取一个待打出的字符串的值，输出，覆盖原来输出的内容";  
-	beginPrint(msg);
+	var msg="哥们，听别人说速度与激情8今天上映，<br>";
+  var msg2 = "我等这部电影已经等了2年<br>";
+  var msg3 = "可是。。<br>自从去年那场意外之后。。<br>";
+  var msg4 = "我就再也没看过电影了。。";
+  beginPrint(msg+msg2+msg3+msg4);
 }
 
 var i=1;
+var isBrace = false;
 function write(msg)  
 {  
 	var id=document.getElementById("printWord");  
 	var len=msg.length;  
 	console.log(i, len);
 	var msg1=msg.substring(0,i);  
+  if (msg1.slice(-1) == '<')
+  {
+     isBrace = true;
+  }
+  else if (msg1.slice(-1) == '>')
+  {
+    isBrace = false;
+    return;
+  }
+  if (isBrace)
+  {
+    return;
+  }
 	id.innerHTML=msg1;  
 }  
 function beginPrint(msg)  
@@ -336,9 +353,10 @@ function beginPrint(msg)
 				var printPage = document.getElementById("printPage");
 				printPage.style.width = "0";
 				printPage.style.height = "0";
+        write("");
 
 				setTimeout(function(){
-					showMessage();
+					showMessage2();
 				},1000);
 			}, 2000);
 		}  
@@ -346,7 +364,7 @@ function beginPrint(msg)
 		{
 			i++;  
 		}
-	}, 100);  
+	}, 200);  
 }  
 
 function hideBtn()
