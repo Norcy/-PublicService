@@ -171,14 +171,14 @@ var hasUnlock = true;
     myVideo.muted = true;
     myVideo.play();
 
-    // var audio4 = document.getElementById('unlock');
-    // audio4.src = "audio/unlock.mp3";
-    // audio4.muted = true;
-    // audio4.currentTime = 0;
-    // audio4.play();
-    // audioAutoPlay(audio4);
+    var audio4 = document.getElementById('unlock');
+    audio4.src = "audio/unlock.mp3";
+    audio4.muted = true;
+    audio4.currentTime = 0;
+    audio4.play();
+    audioAutoPlay(audio4);
 
-    audioAutoPlay();
+    // audioAutoPlay();
     // audio2.play();
 
     
