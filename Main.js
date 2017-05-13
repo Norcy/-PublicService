@@ -172,7 +172,7 @@ var hasUnlock = true;
     audio4.src = "audio/unlock.mp3";
     audio4.muted = true;
     audio4.currentTime = 0;
-    audioAutoPlay(audio4);
+    // audioAutoPlay(audio4);
 
     for (var i = 1; i <= 5; i++)
     {
@@ -193,7 +193,7 @@ var hasUnlock = true;
     audio2.src = "audio/msg2s.mp3";
     audio2.muted = true;
     audio2.currentTime = 0;
-    audioAutoPlay(audio2);
+    // audioAutoPlay(audio2);
     // audio2.play();
 
     var audio3 = document.getElementById('messageAudio3');
@@ -201,8 +201,10 @@ var hasUnlock = true;
     audio3.muted = true;
     audio3.currentTime = 0;
     // audio3.play();
-    audioAutoPlay(audio3);
+    // audioAutoPlay(audio3);
 
+    var array = [audio4, audio2, audio3];
+    audioAutoPlay(array);
     var myVideo = document.getElementById("myVideo");
     myVideo.muted = true;
     myVideo.play();
@@ -443,9 +445,16 @@ function autoPlayAudio1(myAudio)
 }
 
 
-function audioAutoPlay(audio){
-    audio.play();
+function audioAutoPlay(audioArray){
+
+    for (int i = 0; i < audioArray.length; i++)
+    {
+      audioArray[i].play(); 
+    }
     document.addEventListener("WeixinJSBridgeReady", function () {
-            audio.play();
+        for (int i = 0; i < audioArray.length; i++)
+        {
+          audioArray[i].play(); 
+        }
     }, false);
 }
