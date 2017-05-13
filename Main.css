@@ -1,194 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>我也想听听 你眼中的电影</title>
+.eachRow
+{
+	height: 87px;
+	margin-right: 2%;
+	margin-left: 2%;
+}
 
-  <script src="wx.js"></script>
-  <!-- 预加载 -->
-  <link rel="prefetch" href="audio/msg2.mp3" />
-  <link rel="prefetch" href="audio/msg4s.mp3" />
-  <!-- <link rel="prefetch" href="audio/msg3s.mp3" /> -->
-  <link rel="prefetch" href="resource/test.mp4" />
+.appIcon
+{
+	width: 25%;
+	height: 100%;
+	background-color: red;
+	/*background-color: rgba(0,0,0,0);*/
+	display: inline;
+	float:left;
+}
 
-  <script src="jquery.min.js" type="text/javascript"></script>
+html, body
+{
+	height: 100%;
+	width: 100%;
+}
 
-  <meta name="viewport" charset="utf-8" content="width=device-width,
-  initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
-  <link rel="stylesheet" href="css/app.css">
-  <script src="js/app.js"></script>
+.movieTitle
+{
+	color: white;
+	margin-top: 130%;
+	font-size: 25px;
+	text-align: center;
+}
 
-  <script type="text/javascript" src="Main.js"></script>
-  <link rel="stylesheet" type="text/css" href="Main.css">
-  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-  <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-  <!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body onload="preloadSth()">
-  <div id="VideoPage" onclick="showEndPage()" style="display: none;" webkit-playsinline>
-    <!-- <img style="width: 100%;height: 100%" src="http://www.jingjingke.com/res/img/ceshi.png" /> -->
-    <video src="resource/test.mp4" id="myVideo" class="myVideo" preload="load">
-      Your browser does not support the video tag.
-    </video>
-    <div style="width: 100%;height: 100%;background: rgba(0,0,0,0.8);z-index:1;position: relative;bottom:-1%;text-align: center;">
-      <img src="resource/jay.png" style="height: 69px" />
-      <!-- <p class="movieTitle">周杰伦正在导播《大话西游》</p> -->
-    </div>
-  </div>
+.printWord
+{
+	color: white;
+	margin-top: 20%;
+	margin-left: 10%;
+	margin-right: 10%;
+	font-size: 25px;
+	text-align: center;
+}
 
-  <div id="endPage" onclick="showSharePage()" style="display: none;">
-    <div style="width: 100%;height: 100%;overflow:auto;z-index:1;position: absolute;top: 0">
-      <img src="resource/endPage.png" style="width:100%;height:auto;overflow:auto;max-width: 100%;" />
-    </div>
-    <img src="resource/btn2.png" style="width: 100%;height:57px;position: absolute;float: right;bottom: 0;z-index: 1">
-  </div>
+.messageTips
+{
+	top: -104px;
+	height: 104px;
+	width: 100%;
+	/*background: rgba(0,255,0,0.7);*/
+	float: right;
+	position: absolute;
+	z-index: 2;
+	animation: myfirst 0.4s linear 0s forwards;
+	/* Firefox: */
+	-moz-animation: myfirst 0.4s linear 0s  forwards;
+	/* Safari 和 Chrome: */
+	-webkit-animation: myfirst 0.4s linear 0s forwards;
+}
 
+@keyframes myfirst
+{
+	0%   {top:-104px;}
+	/*25%  {background: yellow; left:200px; top:0px;}*/
+	/*50%  {top:-40px;}*/
+	/*75%  {background: rgba(0,255,0,0.7); left:0px; top:200px;}*/
+	100% {top:0px;}
+}
 
-  <div id="printPage" onclick="" style="display: none;width: 100%;height: 100%;z-index:1;position: absolute;top: 0">
-    <!-- <div style=""> -->
-      <!-- <img src="http://www.jingjingke.com/res/img/ceshi.png" style="height: 100%" /> -->
-      <p class="printWord" id="printWord"></p>
-    <!-- </div> -->
-  </div>
+@-moz-keyframes myfirst /* Firefox */
+{
+	0%   {top:-104px;}
+	/*25%  {background: yellow; left:200px; top:0px;}*/
+	/*50%  {top:-40px;}*/
+	/*75%  {background: rgba(0,255,0,0.7); left:0px; top:200px;}*/
+	100% {top:0px;}
+}
 
-
-  <div id="viewport" class="viewport">
-
-    <div class="pageview" style="text-align: center;" >
-      <img src="resource/begin2.png" style="width: 100%;height: 100%">
-      <div id="btn" style="width:160px;height: 79px;z-index:1;position: relative;bottom: 28%;display:inline-block;" onclick="hideBtn()">
-        <img src="resource/btn.png" style="width: 100%;height: 100%;">
-      </div>
-    </div>
-
-    <div class="pageview" style="margin-top: 10px">
-
-      <div class="" id="messageTips" onclick="" style="height: 0px">
-        <img src="" id="messageImg1" style="width: 50%;height: 0px;">
-      </div>
-      <div class="" id="messageTips2" onclick="playVideo()" style="height: 0px">
-        <img src="" id="messageImg2" style="width: 50%;height: 0px;">
-      </div>
-
-
-      <div class="eachRow">
-        <div class="appIcon" id="appicon_r1l1" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r1l2" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r1l3" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r1l4" onclick="play(this)"></div>
-      </div>
-
-      <div class="eachRow">
-        <div class="appIcon" id="appicon_r2l1" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r2l2" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r2l3" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r2l4" onclick="play(this)"></div>
-      </div>
-
-      <div class="eachRow">
-        <div class="appIcon" id="appicon_r3l1" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r3l2" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r3l3" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r3l4" onclick="play(this)"></div>
-      </div>
-
-      <div class="eachRow">
-        <div class="appIcon" id="appicon_r4l1" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r4l2" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r4l3" onclick="play(this)"></div>
-      </div>
-
-      <div class="eachRow" style="bottom: 0px; position: fixed; width: 50%;margin-left: 0px;">
-        <div class="appIcon" id="appicon_r5l1" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r5l2" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r5l3" onclick="play(this)"></div>
-        <div class="appIcon" id="appicon_r5l4" onclick="play(this)"></div>
-      </div>
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+	0%   {top:-104px;}
+	/*25%  {background: yellow; left:200px; top:0px;}*/
+	/*50%  {top:-40px;}*/
+	/*75%  {background: rgba(0,255,0,0.7); left:0px; top:200px;}*/
+	100% {top:0px;}
+}
 
 
-      <img src="resource/home.png" style="width: 50%;height: 100%;top: 0;position:absolute;z-index: 1;pointer-events: none;">  
-    </div>
-    
-  </div>
-  <div class="pagenumber">
-    <div></div>
-    <div></div>
-  </div>
 
+.VideoPage
+{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,1);
+	display: block !important;
+	z-index: 0;
+	position: relative;
+}
 
-  <audio id="r1l1" name="audio">
-    <source src="audio/11.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r1l2" name="audio">
-    <source src="audio/12.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r1l3" name="audio">
-    <source src="audio/13.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r1l4" name="audio">
-    <source src="audio/14.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r2l1" name="audio">
-    <source src="audio/21.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r2l2" name="audio">
-    <source src="audio/22.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r2l3" name="audio">
-    <source src="audio/23.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r2l4" name="audio">
-    <source src="audio/24.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r3l1" name="audio">
-    <source src="audio/31.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r3l2" name="audio">
-    <source src="audio/32.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r3l3" name="audio">
-    <source src="audio/33.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r3l4" name="audio">
-    <source src="audio/34.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r4l1" name="audio">
-    <source src="audio/41.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r4l2" name="audio">
-    <source src="audio/42.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r4l3" name="audio">
-    <source src="audio/43.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r5l1" name="audio">
-    <source src="audio/51.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r5l2" name="audio">
-    <source src="audio/52.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r5l3" name="audio">
-    <source src="audio/53.mp3" type="audio/mpeg"/>
-  </audio>
-  <audio id="r5l4" name="audio">
-    <source src="audio/54.mp3" type="audio/mpeg"/>
-  </audio>
-  
-  <audio id="messageAudio1" name="audio" preload="load">
-    <source src="audio/msg4s.mp3" type="audio/mpeg"/>
-  </audio>
+@-webkit-keyframes myScale /* Safari 和 Chrome */
+{
+	0%   {scale:0;}
+	/*25%  {background: yellow; left:200px; top:0px;}*/
+	/*50%  {scale:0.25f;}*/
+	/*75%  {background: rgba(0,255,0,0.7); left:0px; top:200px;}*/
+	100%   {background: rgba(0,255,0,0.7);scale:0.5;}
+}
 
-  <audio id="messageAudio2" name="audio" preload="load">
-    <source src="audio/msg2.mp3" type="audio/mpeg"/>
-  </audio>
+.myVideo
+{
+	height: 40%;
+	width: 100%;
+	margin: 45% 0 0% 0;
+}
 
-  <!-- <audio id="messageAudio3" name="audio" preload="load">
-    <source src="audio/msg3s.mp3" type="audio/mpeg"/>
-  </audio> -->
+.endPage
+{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	display: block !important;
+	z-index: 0;
+	position: relative;
+}
 
-  <audio id="unlock" name="audio" >
-    <source src="audio/unlock.mp3" type="audio/mpeg"/>
-  </audio>
-</body>
-</html>
+.printPage
+{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	/*background-color: rgba(0,0,0,0.7);*/
+	display: block !important;
+	z-index: 1;
+	position: relative;
+}
