@@ -171,10 +171,15 @@ function preloadSth()
     myVideo.muted = true;
     myVideo.play();
 
-    audio = document.getElementById('messageAudio2');
-    audio.muted = true;
-    audio.currentTime = 0;
-    audio.play();
+    var audio2 = document.getElementById('messageAudio2');
+    audio2.muted = true;
+    audio2.currentTime = 0;
+    audio2.play();
+
+    var audio3 = document.getElementById('messageAudio3');
+    audio3.muted = true;
+    audio3.currentTime = 0;
+    audio3.play();    
 }
 
 
@@ -235,10 +240,15 @@ function showMessage()
 	msgImg1.style.height = "100%";
 	console.log(msgImg1);
 
-	audio = document.getElementById('messageAudio1');
-	playAudio(audio);
+	var audio1 = document.getElementById('messageAudio1');
+	playAudio(audio1);
 
-	setTimeout(function(){showPrintPage()}, 4000);
+	setTimeout(function(){
+    showPrintPage();
+    var audio3 = document.getElementById('messageAudio3');
+    audio3.muted = false;
+    playAudio(audio3);
+  }, 4000);
 }
 
 function hideMessage() 
@@ -257,9 +267,9 @@ function showMessage2()
 	msgImg2.src = "resource/Message2.png";
 	msgImg2.style.height = "100%";
 
-	audio = document.getElementById('messageAudio1');
-  audio.muted = false;
-	playAudio(audio);
+	var audio2 = document.getElementById('messageAudio2');
+  audio2.muted = false;
+	playAudio(audio2);
 }
 
 function hideMessage2() 
@@ -292,6 +302,8 @@ function showEndPage()
 {
   if (!didPlayEnd)
   {
+      var myVideo = document.getElementById("myVideo");
+      myVideo.play();
       return;
   }
 	stopAll();
@@ -318,10 +330,12 @@ function showPrintPage()
 	var printPage = document.getElementById("printPage");
 	printPage.className="printPage";
 	var msg="哥们，听别人说速度与激情8今天上映<br>";
-  var msg2 = "我等这部电影已经等了2年<br>";
-  var msg3 = "可是。。<br>自从去年那场意外之后。。<br>";
-  var msg4 = "我就再也没看过电影了。。";
-  beginPrint(msg+msg2+msg3+msg4);
+  var msg2 = "这部电影我已经等了2年了<br>";
+  var msg3 = "可是自从去年那场意外之后<br>";
+  var msg4 = "我就再也没看过电影了<br><br>";
+  var msg5 = "而我，从来都没看过电影。。。<br>";
+  beginPrint(msg+msg2+msg3+msg4+msg5);
+  // beginPrint(msg5);
 }
 
 var i=1;
@@ -370,7 +384,7 @@ function beginPrint(msg)
 		{
 			i++;  
 		}
-	}, 200);  
+	}, 300);  
 }  
 
 function hideBtn()
