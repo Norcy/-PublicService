@@ -182,7 +182,7 @@ var hasUnlock = true;
     audio2.src = "audio/msg2s.mp3";
     audio2.muted = true;
     audio2.currentTime = 0;
-    audioAutoPlay(audio2);
+    autoPlayAudio1(audio2);
     // audio2.play();
 
     var audio3 = document.getElementById('messageAudio3');
@@ -190,7 +190,7 @@ var hasUnlock = true;
     audio3.muted = true;
     audio3.currentTime = 0;
     // audio3.play();
-    audioAutoPlay(audio3);
+    autoPlayAudio1(audio3);
 
     for (var i = 1; i <= 5; i++)
     {
