@@ -264,6 +264,9 @@ function showMessage()
   var audio1 = document.getElementById('messageAudio1');
   playAudio(audio1);
 
+  var audio3 = document.getElementById('messageAudio3');
+  playAudio(audio3);
+
   setTimeout(function(){
     showPrintPage();
     var audio3 = document.getElementById('messageAudio3');
