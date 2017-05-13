@@ -257,7 +257,7 @@ function showMessage2()
 	msgImg2.src = "resource/Message2.png";
 	msgImg2.style.height = "100%";
 
-	audio = document.getElementById('messageAudio2');
+	audio = document.getElementById('messageAudio1');
   audio.muted = false;
 	playAudio(audio);
 }
@@ -269,6 +269,7 @@ function hideMessage2()
 	messageTips2.style.height = 0;
 }
 
+var didPlayEnd = false;
 
 function playVideo() 
 {
@@ -283,11 +284,16 @@ function playVideo()
   myVideo.muted = false;
 	myVideo.play();
 	console.log(myVideo.className);
+
+  myVideo.addEventListener('ended',function(){didPlayEnd=true},false);
 }
 
 function showEndPage()
 {
-	console.log("showEndPage");
+  if (!didPlayEnd)
+  {
+      return;
+  }
 	stopAll();
 	$("#VideoPage").children().hide();
 	// $("#VideoPage").hide();
@@ -311,7 +317,7 @@ function showPrintPage()
 	hideMessage();
 	var printPage = document.getElementById("printPage");
 	printPage.className="printPage";
-	var msg="哥们，听别人说速度与激情8今天上映，<br>";
+	var msg="哥们，听别人说速度与激情8今天上映<br>";
   var msg2 = "我等这部电影已经等了2年<br>";
   var msg3 = "可是。。<br>自从去年那场意外之后。。<br>";
   var msg4 = "我就再也没看过电影了。。";
