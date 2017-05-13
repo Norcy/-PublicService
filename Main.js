@@ -338,7 +338,7 @@ function beginPrint(msg)
 				printPage.style.height = "0";
 
 				setTimeout(function(){
-					showMessage1();
+					showMessage();
 				},1000);
 			}, 2000);
 		}  
