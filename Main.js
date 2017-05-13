@@ -261,11 +261,11 @@ function showMessage()
   msgImg1.style.height = "100%";
   console.log(msgImg1);
 
-  var audio1 = document.getElementById('messageAudio1');
-  playAudio(audio1);
-
   var audio3 = document.getElementById('messageAudio3');
   playAudio(audio3);
+
+  var audio1 = document.getElementById('messageAudio1');
+  playAudio(audio1);
 
   setTimeout(function(){
     showPrintPage();
