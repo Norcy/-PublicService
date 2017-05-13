@@ -261,9 +261,9 @@ function showMessage()
   msgImg1.style.height = "100%";
   console.log(msgImg1);
 
-  var audio3 = document.getElementById('messageAudio3');
-  playAudio(audio3);
-  audio3.muted = true;
+  var audio2 = document.getElementById('messageAudio2');
+  audio2.muted = true;
+  audio2.play();
 
   var audio1 = document.getElementById('messageAudio1');
   playAudio(audio1);
