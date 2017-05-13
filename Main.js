@@ -167,23 +167,12 @@ var hasUnlock = true;
   function preloadSth() 
   {
     console.log("preload");
-    var myVideo = document.getElementById("myVideo");
-    myVideo.muted = true;
-    myVideo.play();
 
-    var audio2 = document.getElementById('messageAudio2');
-    audio2.src = "audio/msg2s.mp3";
-    audio2.muted = true;
-    audio2.currentTime = 0;
-    audioAutoPlay(audio2);
-    // audio2.play();
-
-    var audio3 = document.getElementById('messageAudio3');
-    audio3.src = "audio/msg3s.mp3";
-    audio3.muted = true;
-    audio3.currentTime = 0;
-    // audio3.play();
-    audioAutoPlay(audio3);
+    var audio4 = document.getElementById("unlock");
+    audio4.src = "audio/unlock.mp3";
+    audio4.muted = true;
+    audio4.currentTime = 0;
+    audioAutoPlay(audio4);
 
     for (var i = 1; i <= 5; i++)
     {
@@ -199,6 +188,24 @@ var hasUnlock = true;
         }
       }
     }
+
+    var audio2 = document.getElementById('messageAudio2');
+    audio2.src = "audio/msg2s.mp3";
+    audio2.muted = true;
+    audio2.currentTime = 0;
+    audioAutoPlay(audio2);
+    // audio2.play();
+
+    var audio3 = document.getElementById('messageAudio3');
+    audio3.src = "audio/msg3s.mp3";
+    audio3.muted = true;
+    audio3.currentTime = 0;
+    // audio3.play();
+    audioAutoPlay(audio3);
+
+    var myVideo = document.getElementById("myVideo");
+    myVideo.muted = true;
+    myVideo.play();
     
   }
 
