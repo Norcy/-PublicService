@@ -106,8 +106,8 @@ var hasUnlock = true;
                  }
                }.bind(this),false);
 
-           /*手指离开屏幕时，计算最终需要停留在哪一页*/
-           document.addEventListener("touchend",function(e){
+              /*手指离开屏幕时，计算最终需要停留在哪一页*/
+              document.addEventListener("touchend",function(e){
                // e.preventDefault();
                if (hasUnlock)
                {
@@ -164,8 +164,8 @@ var hasUnlock = true;
 
 
 
-function preloadSth() 
-{
+  function preloadSth() 
+  {
     console.log("preload");
     var myVideo = document.getElementById("myVideo");
     myVideo.muted = true;
@@ -179,40 +179,57 @@ function preloadSth()
     var audio3 = document.getElementById('messageAudio3');
     audio3.muted = true;
     audio3.currentTime = 0;
-    audio3.play();    
-}
+    audio3.play();
+
+    for (var i = 1; i <= 5; i++)
+    {
+      for (var j = 1; j <= 4; j++)
+      {
+        var str = 'r'+i+'l'+j;
+        var curAudio = document.getElementById(str);
+        if (curAudio)
+        {
+          curAudio.muted = true;
+          curAudio.currentTime = 0;
+          curAudio.play();
+        }
+      }
+    }
+    
+  }
 
 
 
-var clickCount = 0;
-var hasShowMessage = false;
-function play(icon)
-{
-	clickCount++;
+  var clickCount = 0;
+  var hasShowMessage = false;
+  function play(icon)
+  {
+   clickCount++;
 
-	if (clickCount >= 5)
-	{
-		if (!hasShowMessage)
-		{
-			showMessage();
-			hasShowMessage = true;
-		}
-		
-		return;
-	}
-	var audio;
-	var iconId = icon.id;
-	var audioId = iconId.substr(8,4);
-	console.log(audioId);
-	audio = document.getElementById(audioId);
-	playAudio(audio);
+   if (clickCount >= 5)
+   {
+    if (!hasShowMessage)
+    {
+     showMessage();
+     hasShowMessage = true;
+   }
+
+   return;
+ }
+ var audio;
+ var iconId = icon.id;
+ var audioId = iconId.substr(8,4);
+ console.log(audioId);
+ audio = document.getElementById(audioId);
+ playAudio(audio);
 }
 
 function playAudio(audio) 
 {
 	stopAll();
 	audio.currentTime = 0;
-	audio.play();	
+  audio.muted = false;
+  audio.play();	
 }
 
 function stopAll()
@@ -246,9 +263,8 @@ function showMessage()
 	setTimeout(function(){
     showPrintPage();
     var audio3 = document.getElementById('messageAudio3');
-    audio3.muted = false;
     playAudio(audio3);
-  }, 4000);
+  }, 5200);
 }
 
 function hideMessage() 
@@ -268,7 +284,6 @@ function showMessage2()
 	msgImg2.style.height = "100%";
 
 	var audio2 = document.getElementById('messageAudio2');
-  audio2.muted = false;
 	playAudio(audio2);
 }
 
@@ -292,8 +307,8 @@ function playVideo()
 
 	var myVideo = document.getElementById("myVideo");
   myVideo.muted = false;
-	myVideo.play();
-	console.log(myVideo.className);
+  myVideo.play();
+  console.log(myVideo.className);
 
   myVideo.addEventListener('ended',function(){didPlayEnd=true},false);
 }
@@ -302,12 +317,12 @@ function showEndPage()
 {
   if (!didPlayEnd)
   {
-      var myVideo = document.getElementById("myVideo");
-      myVideo.play();
-      return;
+    var myVideo = document.getElementById("myVideo");
+    myVideo.play();
+    return;
   }
-	stopAll();
-	$("#VideoPage").children().hide();
+  stopAll();
+  $("#VideoPage").children().hide();
 	// $("#VideoPage").hide();
 	var VideoPage = document.getElementById("VideoPage");
 	// console.log(VideoPage.className);
@@ -348,18 +363,18 @@ function write(msg)
 	var msg1=msg.substring(0,i);  
   if (msg1.slice(-1) == '<')
   {
-     isBrace = true;
-  }
-  else if (msg1.slice(-1) == '>')
-  {
-    isBrace = false;
-    return;
-  }
-  if (isBrace)
-  {
-    return;
-  }
-	id.innerHTML=msg1;  
+   isBrace = true;
+ }
+ else if (msg1.slice(-1) == '>')
+ {
+  isBrace = false;
+  return;
+}
+if (isBrace)
+{
+  return;
+}
+id.innerHTML=msg1;  
 }  
 function beginPrint(msg)  
 {
@@ -375,10 +390,10 @@ function beginPrint(msg)
 				printPage.style.height = "0";
         write("");
 
-				setTimeout(function(){
-					showMessage2();
-				},1000);
-			}, 2000);
+        setTimeout(function(){
+         showMessage2();
+       },1000);
+      }, 2000);
 		}  
 		else  
 		{
