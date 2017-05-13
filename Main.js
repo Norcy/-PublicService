@@ -447,12 +447,12 @@ function autoPlayAudio1(myAudio)
 
 function audioAutoPlay(audioArray){
 
-    for (int i = 0; i < audioArray.length; i++)
+    for (var i = 0; i < audioArray.length; i++)
     {
       audioArray[i].play(); 
     }
     document.addEventListener("WeixinJSBridgeReady", function () {
-        for (int i = 0; i < audioArray.length; i++)
+        for (var i = 0; i < audioArray.length; i++)
         {
           audioArray[i].play(); 
         }
